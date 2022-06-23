@@ -14,7 +14,7 @@ export async function getDogs(breed, age, { start, end }) {
     }
 
     if (age) {
-        query = query.ilike('age', `%${age}%`);
+        query = query.gte('age', age);
     }
     // *** add paging by setting a range modifier
     query = query.range(start, end);    
