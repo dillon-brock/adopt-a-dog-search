@@ -37,7 +37,6 @@ async function handlePageLoad() {
     totalPages = Math.ceil(count / pageSize);
     display();
 
-    display();
 }
 
 function handleFilter(filter) {
@@ -53,7 +52,7 @@ function handlePaging(change, size) {
     const params = new URLSearchParams(window.location.search);
     // *** set page and pageSize params based on change and PageSize
     // make sure page not less than 1
-    page = size === pageSize ? Math.max(1, page + change) : 1;
+    page = Number(size) === pageSize ? Math.max(1, page + change) : 1;
     params.set('page', page);
     params.set('pageSize', size);
     window.location.search = params.toString();
