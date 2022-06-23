@@ -7,11 +7,13 @@ export default function createFilter(form, { handleFilter }) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-
         // *** call handleFilter with an object that has the breed and age;
+        handleFilter({ breed: formData.get('breed'), age: formData.get('age') });
     });
 
     return ({ breed, age }) => {
         // *** set the values of the select and input
+        input.value = age;
+        select.value = breed;
     };
 }
